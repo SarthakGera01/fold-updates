@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>Fold Updates</title>
+        <description>Release feed for Fold.</description>
+        <language>en</language>
+        <!-- Release items are added here at ship time. -->
+    </channel>
+</rss>
