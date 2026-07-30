@@ -1,6 +1,6 @@
 # fold-updates
 
-Update feed for **Fold** — a macOS menu-bar utility.
+Update feed for **Fold** — the macOS menu-bar app. *Close your Mac. Keep working.*
 
-This repository hosts release metadata only (the Sparkle appcast and release
-notes). It contains no source code.
+This repository hosts only the [Sparkle](https://sparkle-project.org) appcast
+(`appcast.xml`) and release notes for Fold. No application source code lives here.

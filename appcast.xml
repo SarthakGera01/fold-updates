@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
     <channel>
-        <title>Fold Updates</title>
-        <description>Release feed for Fold.</description>
+        <title>Fold updates</title>
+        <link>https://sarthakgera01.github.io/fold-updates/appcast.xml</link>
+        <description>Release feed for Fold — Close your Mac. Keep working.</description>
         <language>en</language>
-        <!-- Release items are added here at ship time. -->
+        <!-- Release items are appended here by the release process. -->
     </channel>
 </rss>
