@@ -11,7 +11,7 @@
             <pubDate>Thu, 06 Aug 2026 23:46:20 +0530</pubDate>
             <sparkle:version>202608062342</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>$MIN_OS</sparkle:minimumSystemVersion>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/SarthakGera01/fold-updates/releases/download/1.0.0/Fold-1.0.0.dmg"
                        length="62971385"
                        type="application/x-apple-diskimage"
