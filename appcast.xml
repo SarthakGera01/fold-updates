@@ -7,6 +7,17 @@
         <language>en</language>
         <!-- Release items are appended here by the release process. -->
         <item>
+            <title>1.0.2</title>
+            <pubDate>Sat, 08 Aug 2026 12:19:53 +0530</pubDate>
+            <sparkle:version>202608081208</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/SarthakGera01/fold-updates/releases/download/1.0.2/Fold-1.0.2.dmg"
+                       length="61502097"
+                       type="application/x-apple-diskimage"
+                       sparkle:edSignature="o6F3qs5KOGJc++rERtFhlCeP1ju1GNGLpu3sZNuoihl4Q/xQ3eAdn++pgogEVW9+L0MydCbYBM6vvVB+OtEsBQ==" />
+        </item>
+        <item>
             <title>1.0.1</title>
             <pubDate>Sat, 08 Aug 2026 11:19:59 +0530</pubDate>
             <sparkle:version>202608081105</sparkle:version>
