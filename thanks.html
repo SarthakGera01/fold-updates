@@ -1,74 +1,403 @@
 <!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Thank you — Fold</title>
-<style>
- :root{--bg:#0b0d10;--fg:#e9ecf1;--dim:#98a1ae;--line:#20242b;--card:#14171c;--blue:#4d9bff}
- @media (prefers-color-scheme:light){
-   :root{--bg:#f6f7f9;--fg:#101317;--dim:#5d636e;--line:#e2e6ec;--card:#fff;--blue:#0a72f0}}
- *{box-sizing:border-box}
- body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-      background:var(--bg);color:var(--fg);padding:32px 20px;
-      font:16px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
-      -webkit-font-smoothing:antialiased}
- .card{width:100%;max-width:560px}
- h1{font-size:30px;line-height:1.2;letter-spacing:-.025em;margin:0 0 10px;font-weight:680}
- h1 span{font-weight:400;color:var(--dim)}
- p.lede{margin:0 0 28px;color:var(--dim)}
- .keybox{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:18px 20px;margin-bottom:14px}
- .klabel{font:600 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;
-         text-transform:uppercase;color:var(--dim);margin-bottom:10px}
- .krow{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
- code{font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all;flex:1;min-width:220px}
- button{font:600 13px/1 inherit;padding:9px 14px;border-radius:8px;border:0;cursor:pointer;
-        background:var(--blue);color:#fff}
- button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
- ol{margin:0;padding-left:20px;color:var(--dim)}
- li{margin:7px 0}
- li b{color:var(--fg);font-weight:600}
- .note{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--dim)}
- a{color:var(--blue)}
-</style>
-<div class="card">
-  <h1>Thank you. <span>Fold Pro is yours.</span></h1>
-  <p class="lede">One Mac, no renewal, every future update included.</p>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Thank you — Fold</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #f5f5f7;
+      --surface: #ffffff;
+      --surface-subtle: rgba(0, 0, 0, 0.035);
+      --text: #1d1d1f;
+      --secondary: #65656b;
+      --tertiary: #86868b;
+      --border: rgba(0, 0, 0, 0.11);
+      --accent: #0a72f0;
+      --accent-soft: rgba(10, 114, 240, 0.10);
+      --accent-ring: rgba(10, 114, 240, 0.28);
+      --success: #187a3d;
+      --success-soft: rgba(24, 122, 61, 0.16);
+      --error: #c9342f;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
 
-  <div class="keybox" id="keybox" hidden>
-    <div class="klabel">Your licence key</div>
-    <div class="krow">
-      <code id="key"></code>
-      <button id="copy" type="button">Copy</button>
-    </div>
-  </div>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #101114;
+        --surface: #1a1b1f;
+        --surface-subtle: rgba(255, 255, 255, 0.045);
+        --text: #f5f5f7;
+        --secondary: #aaaab2;
+        --tertiary: #8e8e96;
+        --border: rgba(255, 255, 255, 0.12);
+        --accent: #4d9bff;
+        --accent-soft: rgba(77, 155, 255, 0.14);
+        --accent-ring: rgba(77, 155, 255, 0.32);
+        --success: #55b978;
+        --success-soft: rgba(85, 185, 120, 0.18);
+        --error: #ff6963;
+        --shadow: 0 20px 55px rgba(0, 0, 0, 0.30), 0 2px 10px rgba(0, 0, 0, 0.18);
+      }
+    }
 
-  <div class="keybox">
-    <div class="klabel">Activate it</div>
-    <ol>
-      <li>Open <b>Fold</b> from the menu bar, then click the gear to open the dashboard.</li>
-      <li>Click the <b>plan pill</b> at the bottom of the sidebar.</li>
-      <li>Paste your key under <b>Already have a licence key?</b> and press <b>Activate</b>.</li>
-    </ol>
-  </div>
+    * {
+      box-sizing: border-box;
+    }
 
-  <p class="note" id="mailnote">Your key is also in your inbox. Nothing there after a few
-  minutes? Check spam, then reply to the Dodo Payments receipt and we'll sort it.</p>
-</div>
-<script>
-  var p = new URLSearchParams(location.search);
-  var k = p.get("license_key");
-  if (k) {
-    document.getElementById("key").textContent = k;
-    document.getElementById("keybox").hidden = false;
-    document.getElementById("copy").addEventListener("click", function () {
-      navigator.clipboard.writeText(k).then(function () {
-        var b = document.getElementById("copy");
-        b.textContent = "Copied";
-        setTimeout(function () { b.textContent = "Copy"; }, 1600);
+    html {
+      min-width: 320px;
+      background: var(--background);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 38px 22px 56px;
+      background:
+        radial-gradient(circle at 50% -120px, var(--accent-soft), transparent 380px),
+        var(--background);
+      color: var(--text);
+      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      width: min(100%, 680px);
+      margin: 0 auto;
+    }
+
+    .wordmark {
+      display: inline-block;
+      margin-bottom: 52px;
+      color: var(--text);
+      font: 400 30px/1 "Lobster Two", Georgia, "Times New Roman", serif;
+      text-decoration: none;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin: 0;
+      font-size: clamp(34px, 7vw, 52px);
+      font-weight: 720;
+      letter-spacing: -0.045em;
+      line-height: 1.06;
+    }
+
+    h1 span {
+      color: var(--secondary);
+      font-weight: 400;
+    }
+
+    h1 .lead {
+      color: var(--text);
+      font-weight: 720;
+    }
+
+    .summary {
+      margin: 14px 0 0;
+      color: var(--secondary);
+      font-size: 17px;
+    }
+
+    .key-card {
+      position: relative;
+      margin-top: 32px;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .key-card::before {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: var(--accent);
+      content: "";
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--secondary);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .key-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .key-value {
+      display: flex;
+      min-height: 52px;
+      align-items: center;
+      margin: 0;
+      padding: 13px 15px;
+      overflow-wrap: anywhere;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface-subtle);
+      color: var(--text);
+      font: 600 15px/1.5 ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+      letter-spacing: 0.015em;
+      user-select: all;
+    }
+
+    button {
+      min-width: 104px;
+      min-height: 52px;
+      padding: 0 19px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--accent);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.13);
+      color: #ffffff;
+      cursor: pointer;
+      font: 600 15px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+      transition: background-color 180ms ease, box-shadow 180ms ease, transform 120ms ease;
+    }
+
+    button:hover {
+      box-shadow: 0 4px 12px var(--accent-ring);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    button[data-state="copied"] {
+      background: var(--success);
+      box-shadow: 0 0 0 5px var(--success-soft), 0 4px 14px var(--success-soft);
+    }
+
+    button[data-state="error"] {
+      background: var(--error);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .activation {
+      margin-top: 48px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 650;
+      letter-spacing: -0.018em;
+    }
+
+    .steps {
+      display: grid;
+      gap: 0;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: steps;
+      border-top: 1px solid var(--border);
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 19px 0;
+      border-bottom: 1px solid var(--border);
+      counter-increment: steps;
+    }
+
+    .steps li::before {
+      display: grid;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      content: counter(steps);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .steps p {
+      margin: 2px 0 0;
+      color: var(--secondary);
+    }
+
+    .steps strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .aftercare {
+      margin-top: 34px;
+      color: var(--tertiary);
+      font-size: 14px;
+    }
+
+    .aftercare p {
+      margin: 0;
+    }
+
+    .aftercare p + p {
+      margin-top: 9px;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 28px 16px 42px;
+      }
+
+      .wordmark {
+        margin-bottom: 40px;
+        font-size: 28px;
+      }
+
+      .summary {
+        font-size: 16px;
+      }
+
+      .key-card {
+        margin-top: 26px;
+        padding: 20px;
+      }
+
+      .key-row {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .activation {
+        margin-top: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="wordmark" aria-label="Fold">Fold</div>
+
+    <h1><span class="lead">Your licence key</span><span id="heading-tail"> is ready.</span></h1>
+    <p class="summary">Bought once. No renewal, and every future update included.</p>
+
+    <section class="key-card" id="key-card" aria-labelledby="key-label" hidden>
+      <p class="eyebrow" id="key-label">Your Fold Pro licence key</p>
+      <div class="key-row">
+        <code class="key-value" id="key" tabindex="-1"></code>
+        <button id="copy" type="button" data-state="idle" aria-live="polite">Copy key</button>
+      </div>
+    </section>
+
+    <section class="activation" aria-labelledby="activation-title">
+      <h2 id="activation-title">Activate Fold Pro</h2>
+      <ol class="steps">
+        <li><p>Open <strong>Fold</strong> from the menu bar, then click the <strong>gear</strong> to open the dashboard.</p></li>
+        <li><p>Click the <strong>plan pill</strong> at the bottom of the sidebar.</p></li>
+        <li><p>Paste your key under <strong>Already have a licence key?</strong>, then click <strong>Activate</strong>.</p></li>
+      </ol>
+    </section>
+
+    <footer class="aftercare">
+      <p id="mail-note">Your licence key is also in your email. If it does not arrive after a few minutes, check spam, then reply to the Dodo Payments receipt and we’ll sort it.</p>
+      <p>Fold Pro is active on one Mac at a time. To move to another Mac, sign out of Fold Pro on the first Mac before activating the next one.</p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var licenceKey = params.get("license_key");
+      var keyCard = document.getElementById("key-card");
+      var keyValue = document.getElementById("key");
+      var copyButton = document.getElementById("copy");
+      var mailNote = document.getElementById("mail-note");
+      var headingTail = document.getElementById("heading-tail");
+      var resetTimer;
+
+      if (!licenceKey) {
+        headingTail.textContent = " is on its way.";
+        mailNote.textContent = "Your licence key is on its way to your inbox. If it does not arrive after a few minutes, check spam, then reply to the Dodo Payments receipt and we’ll sort it.";
+        return;
+      }
+
+      keyValue.textContent = licenceKey;
+      keyCard.hidden = false;
+
+      function setButtonState(state, label) {
+        window.clearTimeout(resetTimer);
+        copyButton.dataset.state = state;
+        copyButton.textContent = label;
+
+        if (state !== "idle") {
+          resetTimer = window.setTimeout(function () {
+            copyButton.dataset.state = "idle";
+            copyButton.textContent = "Copy key";
+          }, 2200);
+        }
+      }
+
+      function legacyCopy(text) {
+        var field = document.createElement("textarea");
+        field.value = text;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.select();
+
+        var copied = document.execCommand("copy");
+        document.body.removeChild(field);
+        return copied;
+      }
+
+      function copyLicenceKey() {
+        if (!navigator.clipboard || !window.isSecureContext) {
+          return Promise.resolve(legacyCopy(licenceKey));
+        }
+
+        return navigator.clipboard.writeText(licenceKey).catch(function () {
+          return legacyCopy(licenceKey);
+        });
+      }
+
+      copyButton.addEventListener("click", function () {
+        copyLicenceKey().then(function (copied) {
+          if (copied === false) {
+            throw new Error("Copy failed");
+          }
+          setButtonState("copied", "Copied");
+        }).catch(function () {
+          setButtonState("error", "Select key");
+          keyValue.focus();
+          window.getSelection().selectAllChildren(keyValue);
+        });
       });
-    });
-  } else {
-    // No key in the URL — say where it is rather than showing an empty box.
-    document.getElementById("mailnote").textContent =
-      "Your licence key is on its way to your inbox. Nothing there after a few minutes? Check spam, then reply to the Dodo Payments receipt and we'll sort it.";
-  }
-</script>
+    }());
+  </script>
+</body>
+</html>
