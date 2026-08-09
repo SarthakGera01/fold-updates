@@ -34,15 +34,16 @@
       margin: 0;
       background: var(--background);
       color: var(--text);
-      font: 16px/1.47 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      font: 14px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
     main {
-      width: min(100% - 40px, 980px);
+      width: 100%;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 42px 0 96px;
+      padding: 64px 24px 96px;
     }
 
     .wordmark {
@@ -50,55 +51,54 @@
       width: max-content;
       margin: 0 auto;
       color: var(--text);
-      font: 400 28px/1 "Lobster Two", Georgia, "Times New Roman", serif;
+      font: 400 22px/1 "Lobster Two", Georgia, "Times New Roman", serif;
     }
 
     .hero {
-      padding-top: 132px;
-      text-align: center;
+      padding-top: 56px;
     }
 
     h1 {
-      max-width: 780px;
-      margin: 0 auto;
-      font-size: clamp(44px, 7.2vw, 72px);
-      font-weight: 700;
-      letter-spacing: -0.055em;
-      line-height: 0.98;
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
     }
 
     h1 span {
       color: var(--secondary);
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .summary {
-      margin: 24px 0 0;
+      margin: 10px 0 0;
       color: var(--secondary);
-      font-size: 17px;
-      letter-spacing: -0.01em;
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .key-panel {
-      max-width: 760px;
-      margin: 52px auto 0;
-      padding: 42px 44px;
-      border-radius: 24px;
-      background: var(--surface);
+      margin: 20px 0 0;
+      padding: 20px 22px;
+      border: 1px solid #d2d2d7;
+      border-radius: 12px;
+      background: var(--background);
     }
 
     .key-label {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       color: var(--secondary);
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.3;
     }
 
     .key-row {
       display: flex;
-      gap: 24px;
+      gap: 16px;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
     }
 
     .key-value {
@@ -106,69 +106,64 @@
       margin: 0;
       overflow-wrap: anywhere;
       color: var(--text);
-      font: 600 clamp(16px, 2.3vw, 22px)/1.4 ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-      letter-spacing: -0.02em;
+      font: 400 15px/1.4 ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
       user-select: all;
     }
 
     button {
       flex: 0 0 auto;
-      min-width: 96px;
-      min-height: 44px;
-      padding: 0 19px;
+      margin: -6px;
+      padding: 6px;
       border: 0;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #ffffff;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--accent);
       cursor: pointer;
-      font: 600 14px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-      transition: background-color 160ms ease, transform 160ms ease;
+      font: 400 14px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      transition: opacity 160ms ease;
     }
 
     button:hover {
-      background: #0866d8;
+      text-decoration: underline;
     }
 
     button:active {
-      transform: scale(0.97);
+      opacity: 0.65;
     }
 
-    button[data-state="copied"] {
-      background: var(--success);
-    }
-
+    button[data-state="copied"],
     button[data-state="error"] {
-      background: var(--error);
+      background: transparent;
+      color: var(--accent);
     }
 
     :focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
     }
 
     .activation {
-      margin-top: 180px;
+      margin-top: 56px;
     }
 
     h2 {
       margin: 0;
-      text-align: center;
-      font-size: clamp(30px, 4vw, 42px);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 1.08;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
     }
 
     h2 span {
       color: var(--secondary);
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      margin: 64px 0 0;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 20px 0 0;
       padding: 0;
       list-style: none;
       counter-reset: steps;
@@ -176,21 +171,27 @@
 
     .steps li {
       counter-increment: steps;
+      padding: 20px 22px;
+      border: 1px solid #d2d2d7;
+      border-radius: 12px;
+      background: var(--background);
     }
 
     .steps li::before {
       display: block;
-      margin-bottom: 18px;
-      color: var(--accent);
+      margin-bottom: 8px;
+      color: var(--secondary);
       content: counter(steps);
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.3;
     }
 
     .steps p {
       margin: 0;
       color: var(--secondary);
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .steps strong {
@@ -199,11 +200,13 @@
     }
 
     .aftercare {
-      max-width: 600px;
-      margin: 180px auto 0;
+      margin: 56px 0 0;
+      padding: 20px 22px;
+      border-radius: 12px;
+      background: var(--surface);
       color: var(--secondary);
-      text-align: center;
-      font-size: 13px;
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .aftercare p {
@@ -218,70 +221,15 @@
       display: none !important;
     }
 
-    @media (max-width: 700px) {
-      main {
-        width: min(100% - 32px, 980px);
-        padding-top: 30px;
-      }
-
-      .hero {
-        padding-top: 104px;
-      }
-
-      h1 {
-        font-size: clamp(42px, 13vw, 60px);
-      }
-
-      .key-panel {
-        margin-top: 42px;
-        padding: 32px 24px;
-        border-radius: 20px;
-      }
-
+    @media (max-width: 480px) {
       .key-row {
         flex-direction: column;
-        gap: 24px;
+        gap: 10px;
+        align-items: flex-start;
       }
 
-      .key-value {
-        font-size: 15px;
-      }
-
-      .activation {
-        margin-top: 132px;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 42px;
-        max-width: 480px;
-        margin: 52px auto 0;
-      }
-
-      .steps li::before {
-        margin-bottom: 10px;
-      }
-
-      .aftercare {
-        margin-top: 132px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      main {
-        width: calc(100% - 24px);
-      }
-
-      .hero {
-        padding-top: 88px;
-      }
-
-      .summary {
-        font-size: 15px;
-      }
-
-      .key-panel {
-        padding: 28px 18px;
+      button {
+        margin-left: -6px;
       }
     }
 
