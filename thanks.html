@@ -171,6 +171,9 @@
 
     .steps li {
       counter-increment: steps;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
       padding: 20px 22px;
       border: 1px solid #d2d2d7;
       border-radius: 12px;
@@ -178,8 +181,8 @@
     }
 
     .steps li::before {
-      display: block;
-      margin-bottom: 8px;
+      flex: none;
+      min-width: 12px;
       color: var(--secondary);
       content: counter(steps);
       font-size: 17px;
