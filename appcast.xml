@@ -17,38 +17,5 @@
                        type="application/x-apple-diskimage"
                        sparkle:edSignature="8U0FT2BQJDUO2w3u6o47kBBat8e9tzDMW3D6d56fM/ucPCsu8820U0LeTAuAt/jjiZoaL5Ts9fnBvguvGvQdDw==" />
         </item>
-        <item>
-            <title>1.0.2</title>
-            <pubDate>Sat, 08 Aug 2026 12:19:53 +0530</pubDate>
-            <sparkle:version>202608081208</sparkle:version>
-            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SarthakGera01/fold-updates/releases/download/1.0.2/Fold-1.0.2.dmg"
-                       length="61502097"
-                       type="application/x-apple-diskimage"
-                       sparkle:edSignature="o6F3qs5KOGJc++rERtFhlCeP1ju1GNGLpu3sZNuoihl4Q/xQ3eAdn++pgogEVW9+L0MydCbYBM6vvVB+OtEsBQ==" />
-        </item>
-        <item>
-            <title>1.0.1</title>
-            <pubDate>Sat, 08 Aug 2026 11:19:59 +0530</pubDate>
-            <sparkle:version>202608081105</sparkle:version>
-            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SarthakGera01/fold-updates/releases/download/1.0.1/Fold-1.0.1.dmg"
-                       length="61499006"
-                       type="application/x-apple-diskimage"
-                       sparkle:edSignature="HYkH+7hNDxY+9T4jaJQeUufBs7NhvEzpBjvR6cHBj5htXt1H/eLVMDSLGzRVDb3ZrE9evWlEs9NP4+qihgdeAQ==" />
-        </item>
-        <item>
-            <title>1.0.0</title>
-            <pubDate>Thu, 06 Aug 2026 23:46:20 +0530</pubDate>
-            <sparkle:version>202608062342</sparkle:version>
-            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/SarthakGera01/fold-updates/releases/download/1.0.0/Fold-1.0.0.dmg"
-                       length="62971385"
-                       type="application/x-apple-diskimage"
-                       sparkle:edSignature="EpbGdTCkCpnk8dtFS9TFUCSvVbUmbmoZWchaIUoLbS6jHHQgWexZmCez9b4mdAe8kolPsIFSKOxr4Ps8PlvoBQ==" />
-        </item>
     </channel>
 </rss>
